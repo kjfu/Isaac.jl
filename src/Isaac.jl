@@ -13,7 +13,7 @@ include("fdkrylov.jl")
 include("nsoli.jl")
 
 # # the main transformed Newton solver
-# include("solvermain.jl")
+include("solvermain.jl")
 
 # # interfaces to Optim.jl and NLsolve.jl
 # include("interfaces.jl")

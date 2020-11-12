@@ -42,7 +42,7 @@ For computing *any* critical point use `nsoli` instead.
 * `x` : solution
 * `numdE` : number of gradient evaluations
 """
-function nsolimod{T}(dE, x0::Vector{T}, saddleindex::Int;
+function nsolimod(dE, x0::Vector{T}, saddleindex::Int;
                   tol = 1e-5,
                   maxnumdE = 200,
                   maxstep = Inf,
@@ -55,7 +55,7 @@ function nsolimod{T}(dE, x0::Vector{T}, saddleindex::Int;
                   linesearch = lsforce,
                   krylovinit = :resrot,    # TODO: remove asap
                   update_α_old = true
-               )
+				 ) where {T}
    debug = verbose > 2
    progressmeter = verbose == 1
 
@@ -248,14 +248,14 @@ of -f as opposed to f is motivated by the gradient flow case.)
 * `x` : solution
 * `numdE` : number of gradient evaluations
 """
-function nsolistab{T}(f, x0::Vector{T};
+function nsolistab(f, x0::Vector{T};
                   tol = 1e-5,
                   maxnumdE = 200,
                   maxstep = Inf,
                   hfd = 1e-7,
                   P = I, precon_prep = (P, x) -> P,
                   verbose = 1,
-                  linesearch = lsforce )
+				  linesearch = lsforce ) where {T}
    debug = verbose > 2
    progressmeter = verbose == 1
 
